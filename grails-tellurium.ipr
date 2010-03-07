@@ -48,6 +48,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/grails-tellurium.iml" filepath="$PROJECT_DIR$/grails-tellurium.iml" />
       <module fileurl="file://$PROJECT_DIR$/tellurium.iml" filepath="$PROJECT_DIR$/tellurium.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test/projects/tellurium-test/tellurium-test.iml" filepath="$PROJECT_DIR$/test/projects/tellurium-test/tellurium-test.iml" />
     </modules>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_5" assert-keyword="true" jdk-15="true" project-jdk-name="1.6" project-jdk-type="JavaSDK">
