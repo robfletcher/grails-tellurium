@@ -42,7 +42,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Grails 1.2.1" level="project" />
+    <orderEntry type="library" name="Grails 1.2.1" level="application" />
     <orderEntry type="module-library">
       <library name="Grails User Library">
         <CLASSES>
@@ -53,6 +53,7 @@
         <jarDirectory url="file://$MODULE_DIR$/lib" recursive="false" />
       </library>
     </orderEntry>
+    <orderEntry type="module" module-name="tellurium-test-grailsPlugins" />
   </component>
 </module>
 
