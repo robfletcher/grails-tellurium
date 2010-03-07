@@ -1,1 +1,4 @@
 *.iws
+*.log
+devDB.*
+*.zip

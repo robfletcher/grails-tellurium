@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AntConfiguration">
+    <defaultAnt bundledAnt="true" />
+  </component>
+  <component name="ArtifactManager">
+    <artifact type="exploded-war" name="tellurium:GrailsWeb exploded">
+      <root id="root">
+        <element id="javaee-facet-resources" facet="tellurium/web/GrailsWeb" />
+      </root>
+    </artifact>
+    <artifact type="exploded-war" name="tellurium-test:GrailsWeb exploded">
+      <root id="root">
+        <element id="javaee-facet-resources" facet="tellurium-test/web/GrailsWeb" />
+      </root>
+    </artifact>
+  </component>
   <component name="CompilerConfiguration">
     <option name="DEFAULT_COMPILER" value="Javac" />
     <resourceExtensions>
@@ -47,7 +62,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/grails-tellurium.iml" filepath="$PROJECT_DIR$/grails-tellurium.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tellurium.iml" filepath="$PROJECT_DIR$/tellurium.iml" />
       <module fileurl="file://$PROJECT_DIR$/test/projects/tellurium-test/tellurium-test.iml" filepath="$PROJECT_DIR$/test/projects/tellurium-test/tellurium-test.iml" />
       <module fileurl="file://$PROJECT_DIR$/test/projects/tellurium-test/tellurium-test-grailsPlugins.iml" filepath="$PROJECT_DIR$/test/projects/tellurium-test/tellurium-test-grailsPlugins.iml" />
     </modules>

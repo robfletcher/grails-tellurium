@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module relativePaths="true" type="GRAILS_MODULE" version="4">
+<module relativePaths="true" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
-    <facet type="Grails" name="Grails">
-      <configuration />
-    </facet>
     <facet type="web" name="GrailsWeb">
       <configuration>
         <webroots>
           <root url="file://$MODULE_DIR$/web-app" relative="/" />
         </webroots>
         <sourceRoots />
-        <building>
-          <setting name="EXPLODED_URL" value="file://" />
-          <setting name="EXPLODED_ENABLED" value="false" />
-          <setting name="JAR_URL" value="file://" />
-          <setting name="JAR_ENABLED" value="false" />
-          <setting name="EXCLUDE_EXPLODED_DIRECTORY" value="true" />
-        </building>
+        <context-artifact name="tellurium-test:GrailsWeb exploded" />
       </configuration>
     </facet>
     <facet type="Spring" name="Spring">
@@ -39,6 +30,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/test/integration" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/test/unit" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/test/tellurium" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -53,7 +46,7 @@
         <jarDirectory url="file://$MODULE_DIR$/lib" recursive="false" />
       </library>
     </orderEntry>
-    <orderEntry type="module" module-name="tellurium-test-grailsPlugins" />
+    <orderEntry type="module" module-name="grails-tellurium" />
   </component>
 </module>
 
