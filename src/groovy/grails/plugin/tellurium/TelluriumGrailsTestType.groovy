@@ -1,15 +1,15 @@
 package grails.plugin.tellurium
 
 import org.codehaus.groovy.grails.test.junit3.JUnit3GrailsTestType
-import org.tellurium.connector.SeleniumConnector
-import org.tellurium.framework.TelluriumFramework
-import org.tellurium.bootstrap.TelluriumSupport
 import org.codehaus.groovy.grails.test.junit3.JUnit3GrailsTestTypeMode
+import org.telluriumsource.component.connector.SeleniumConnector
+import org.telluriumsource.framework.TelluriumFramework
+import org.telluriumsource.framework.bootstrap.TelluriumSupport
 
 class TelluriumGrailsTestType extends JUnit3GrailsTestType {
 
 	static SeleniumConnector connector
-	private TelluriumFramework aost
+	private TelluriumFramework tellurium
 
 	TelluriumGrailsTestType(String name, String sourceDirectory) {
 		super(name, sourceDirectory)
@@ -20,17 +20,22 @@ class TelluriumGrailsTestType extends JUnit3GrailsTestType {
 	}
 
 	protected int doPrepare() {
+		println "doPrepare"
 		def count = super.doPrepare()
 		if (count > 0) {
-			aost = TelluriumSupport.addSupport()
-			aost.start(null)
-			connector = aost.connector
+			tellurium = TelluriumSupport.addSupport()
+			tellurium.start()
+			connector = tellurium.connector
+			println "connector = $connector"
+			connector.connectSeleniumServer()
+			tellurium.useCache true
 		}
 		return count
 	}
 
 	def void cleanup() {
-		aost?.stop()
+		connector.disconnectSeleniumServer()
+		tellurium?.stop()
 		super.cleanup()
 	}
 }

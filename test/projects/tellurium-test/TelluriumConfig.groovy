@@ -1,3 +1,12 @@
+/**
+ * The global place to Tellurium configuration
+ *
+ * @author Jian Fang (John.Jian.Fang@gmail.com)
+ *
+ * Date: Aug 2, 2008
+ *
+ */
+
 tellurium{
     //embedded selenium server configuration
     embeddedserver {
@@ -5,24 +14,45 @@ tellurium{
         port = "4444"
         //whether to use multiple windows
         useMultiWindows = false
+        //whether to trust all SSL certs, i.e., option "-trustAllSSLCertificates"
+        trustAllSSLCertificates = true
         //whether to run the embedded selenium server. If false, you need to manually set up a selenium server
         runInternally = true
+        //By default, Selenium proxies every browser request; set this flag to make the browser use proxy only for URLs containing '/selenium-server'
+        avoidProxy = false
+        //stops re-initialization and spawning of the browser between tests
+        browserSessionReuse = false
+        //enabling this option will cause all user cookies to be archived before launching IE, and restored after IE is closed.
+        ensureCleanSession = false
+        //debug mode, with more trace information and diagnostics on the console
+        debugMode = false
+        //interactive mode
+        interactive = false
+        //an integer number of seconds before we should give up
+        timeoutInSeconds = 30
         //profile location
         profile = ""
-        //user-extension.js file, for example, "target/test-classes/extension/user-extensions.js"
-        userExtension = ""
+//        profile = "/home/jiafan1/.mozilla/firefox/876su0gg.default"
+        //user-extension.js file
+        userExtension = "target/test-classes/extension/user-extensions.js"
     }
     //event handler
     eventhandler{
         //whether we should check if the UI element is presented
         checkElement = false
         //wether we add additional events like "mouse over"
-        extraEvent = true
+        extraEvent = false
     }
     //data accessor
     accessor{
         //whether we should check if the UI element is presented
         checkElement = true
+    }
+      //the bundling tier
+    bundle{
+        maxMacroCmd = 5
+        //false means  maxMacroCmd = 1
+        useMacroCommand = true
     }
     //the configuration for the connector that connects the selenium client to the selenium server
     connector{
@@ -42,15 +72,23 @@ tellurium{
         //user's class to hold custom selenium methods associated with user-extensions.js
         //should in full class name, for instance, "com.mycom.CustomSelenium"
         customClass = ""
+//        customClass = ""
+        //browser options such as
+        //    options = "captureNetworkTraffic=true, addCustomRequestHeader=true"
+        options = ""
     }
     datadriven{
         dataprovider{
             //specify which data reader you like the data provider to use
-            //the valid options include "PipeFileReader", "CVSFileReader" at this point
+            //the valid options include "PipeFileReader", "CSVFileReader" , "ExcelFileReader" at this point
             reader = "PipeFileReader"
         }
     }
     test{
+        execution{
+            //whether to trace the execution timing
+            trace = false
+        }
         //at current stage, the result report is only for tellurium data driven testing
         //we may add the result report for regular tellurium test case
         result{
@@ -88,8 +126,8 @@ tellurium{
             //take the TableBuilder or ListBuilder as an example
 
             //example:
-//           Icon="org.tellurium.builder.IconBuilder"
-            
+//           Icon="org.telluriumsource.ui.builder.IconBuilder"
+
         }
     }
     widget{

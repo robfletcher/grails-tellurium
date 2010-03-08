@@ -27,7 +27,7 @@ class CreateAlbumTests extends TelluriumGrailsTestCase {
 		}
 	}
 
-	void testCreateAlbumCreatesNewArtistsz() {
+	void testCreateAlbumCreatesNewArtists() {
 		module.createAlbum("Edward Sharpe & the Magnetic Zeros", "Up From Below", "2009")
 
 		assertEquals 1, Album.count()
