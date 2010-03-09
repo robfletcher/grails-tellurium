@@ -38,18 +38,16 @@
       <library name="Grails User Library">
         <CLASSES>
           <root url="file://$MODULE_DIR$/lib" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.telluriumsource/tellurium-core/jars/tellurium-core-0.7.0-RC1.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/tellurium/tellurium-core/jars/tellurium-core-0.6.0.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/caja/json_simple/jars/json_simple-r1.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.apache.poi/poi/jars/poi-3.0.1-FINAL.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/org.stringtree/stringtree-json/jars/stringtree-json-2.0.10.jar!/" />
-          <root url="jar://$USER_HOME$/.ivy2/cache/org.seleniumhq.selenium.server/selenium-server/jars/selenium-server-1.0.1-te2-RC1.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.seleniumhq.selenium.server/selenium-server/jars/selenium-server-1.0.1-te.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/org.seleniumhq.selenium.client-drivers/selenium-java-client-driver/jars/selenium-java-client-driver-1.0.1.jar!/" />
+          <root url="jar://$USER_HOME$/.ivy2/cache/org.openqa.selenium.grid/selenium-grid-tools/jars/selenium-grid-tools-1.0.2.jar!/" />
           <root url="jar://$USER_HOME$/.ivy2/cache/bouncycastle/bcprov-jdk15/jars/bcprov-jdk15-140.jar!/" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES>
-          <root url="file://$USER_HOME$/java/tellurium-0.7.0-RC1/core/src/main/groovy" />
-        </SOURCES>
+        <SOURCES />
         <jarDirectory url="file://$MODULE_DIR$/lib" recursive="false" />
       </library>
     </orderEntry>

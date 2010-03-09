@@ -1,7 +1,12 @@
 package grails.plugin.tellurium
 
-import org.telluriumsource.test.groovy.TelluriumSuiteGroovyTestCase
+import org.tellurium.connector.SeleniumConnector
+import org.tellurium.test.groovy.BaseTelluriumGroovyTestCase
 
-class TelluriumGrailsTestCase extends TelluriumSuiteGroovyTestCase {
+class TelluriumGrailsTestCase extends BaseTelluriumGroovyTestCase {
+
+	SeleniumConnector getConnector() {
+		return TelluriumGrailsTestType.connector
+	}
 
 }

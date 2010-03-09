@@ -1,6 +1,6 @@
 package module
 
-import org.telluriumsource.dsl.DslContext
+import org.tellurium.dsl.DslContext
 
 class CreateAlbumModule extends DslContext {
 

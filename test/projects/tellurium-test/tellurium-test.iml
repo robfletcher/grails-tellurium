@@ -47,7 +47,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module" module-name="grails-tellurium" />
-    <orderEntry type="module" module-name="tellurium-test-grailsPlugins" />
   </component>
 </module>
 
