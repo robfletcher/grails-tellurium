@@ -7,8 +7,10 @@ Tellurium tests should be placed in `test/tellurium` and extend the `grails.plug
 
 ## Running Tellurium tests
 Tellurium tests run in the `functional:tellurium` phase so they will run with:
+
  * `grails test-app`
  * `grails test-app functional:`
  * `grails test-app :tellurium`
  * `grails test-app functional:tellurium`
+
 Individual test names can be used just as with regular Grails tests.
