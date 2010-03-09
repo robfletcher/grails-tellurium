@@ -3,3 +3,4 @@
 devDB.*
 *.zip
 plugin.xml
+target/
