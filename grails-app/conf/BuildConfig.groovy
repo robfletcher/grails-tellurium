@@ -15,6 +15,8 @@ grails.project.dependency.resolution = {
         mavenRepo "http://download.java.net/maven/2/"
         mavenRepo "http://repository.jboss.com/maven2/"
 		mavenRepo "http://maven.kungfuters.org/content/repositories/releases"
+		mavenRepo "http://maven.kungfuters.org/content/repositories/snapshots"
+		mavenRepo "http://maven.kungfuters.org/content/repositories/thirdparty"
     }
     dependencies {
         test("tellurium:tellurium-core:0.6.0") {
