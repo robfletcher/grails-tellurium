@@ -5,6 +5,9 @@ class Album {
 	static belongsTo = [artist: Artist]
 	String name
 	String year
+	List tracks = []
+
+	static hasMany = [tracks: Song]
 
     static constraints = {
 		artist()
@@ -14,6 +17,7 @@ class Album {
 
 	static mapping = {
 		artist cascade: "save-update"
+		tracks cascade: "all-delete-orphan"
 	}
 	
 	boolean equals(other) {

@@ -19,8 +19,8 @@ grails.project.dependency.resolution = {
 		mavenRepo "http://maven.kungfuters.org/content/repositories/thirdparty"
     }
     dependencies {
-        test("tellurium:tellurium-core:0.6.0") {
-			excludes "gmaven-runtime-1.6", "groovy-all"
+        test("org.telluriumsource:tellurium-core:0.7.0") {
+			excludes "gmaven-runtime-1.6", "groovy-all", "poi", "testng", "junit"
 		}
     }
 
