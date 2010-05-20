@@ -5,6 +5,7 @@ import org.codehaus.groovy.grails.test.support.GrailsTestMode
 import org.telluriumsource.component.connector.SeleniumConnector
 import org.telluriumsource.framework.TelluriumFramework
 import org.telluriumsource.framework.bootstrap.TelluriumSupport
+import org.telluriumsource.framework.Environment
 
 class TelluriumGrailsTestType extends JUnit4GrailsTestType {
 
@@ -22,6 +23,7 @@ class TelluriumGrailsTestType extends JUnit4GrailsTestType {
 	protected int doPrepare() {
 		def count = super.doPrepare()
 		if (count > 0) {
+			Environment.instance.configFileName = "grails-app/conf/TelluriumConfig.groovy"
 			tellurium = TelluriumSupport.addSupport()
 			tellurium.start(null)
 			connector = tellurium.connector
