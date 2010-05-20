@@ -20,7 +20,7 @@ grails.project.dependency.resolution = {
     }
     dependencies {
         test("org.telluriumsource:tellurium-core:0.7.0") {
-			excludes "gmaven-runtime-1.6", "groovy-all", "poi", "testng", "junit"
+			excludes "gmaven-runtime-1.6", "groovy-all", "testng", "junit"
 		}
     }
 

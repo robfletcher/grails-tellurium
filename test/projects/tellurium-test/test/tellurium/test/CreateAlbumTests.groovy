@@ -4,22 +4,26 @@ import grails.plugin.tellurium.TelluriumGrailsTestCase
 import module.CreateAlbumModule
 import musicstore.Album
 import musicstore.Artist
+import org.junit.After
+import org.junit.Before
+import org.junit.BeforeClass
+import org.junit.Test
 
 class CreateAlbumTests extends TelluriumGrailsTestCase {
 
 	private static CreateAlbumModule module;
 
-	static {
+	@BeforeClass static void setUpModules() {
 		module = new CreateAlbumModule();
 		module.defineUi();
 	}
 
-	void setUp() {
+	@Before void setUp() {
 		super.setUp()
 		connectUrl("http://localhost:8080/album/create");
 	}
 
-	void tearDown() {
+	@After void tearDown() {
 		super.tearDown()
 		Album.withNewSession {
 			Album.list()*.delete()
@@ -27,7 +31,7 @@ class CreateAlbumTests extends TelluriumGrailsTestCase {
 		}
 	}
 
-	void testCreateAlbumCreatesNewArtistsz() {
+	@Test void createAlbumCreatesNewArtists() {
 		module.createAlbum("Edward Sharpe & the Magnetic Zeros", "Up From Below", "2009")
 
 		assertEquals 1, Album.count()
@@ -38,7 +42,7 @@ class CreateAlbumTests extends TelluriumGrailsTestCase {
 		assertEquals "2009", album.year
 	}
 
-	void testCreateAlbumUsesExistingArtist() {
+	@Test void createAlbumUsesExistingArtist() {
 		new Artist(name: "Edward Sharpe & the Magnetic Zeros").save(failOnError: true, flush: true)
 
 		module.createAlbum("Edward Sharpe & the Magnetic Zeros", "Up From Below", "2009")

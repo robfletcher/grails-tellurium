@@ -5,11 +5,25 @@ tellurium{
         port = "4444"
         //whether to use multiple windows
         useMultiWindows = false
+        //whether to trust all SSL certs, i.e., option "-trustAllSSLCertificates"
+        trustAllSSLCertificates = true
         //whether to run the embedded selenium server. If false, you need to manually set up a selenium server
         runInternally = true
+        //By default, Selenium proxies every browser request; set this flag to make the browser use proxy only for URLs containing '/selenium-server'
+        avoidProxy = false
+        //stops re-initialization and spawning of the browser between tests
+        browserSessionReuse = false
+        //enabling this option will cause all user cookies to be archived before launching IE, and restored after IE is closed.
+        ensureCleanSession = false
+        //debug mode, with more trace information and diagnostics on the console
+        debugMode = false
+        //interactive mode
+        interactive = false
+        //an integer number of seconds before we should give up
+        timeoutInSeconds = 30
         //profile location
         profile = ""
-        //user-extension.js file, for example, "target/test-classes/extension/user-extensions.js"
+        //user-extension.js file
         userExtension = ""
     }
     //event handler
@@ -17,12 +31,17 @@ tellurium{
         //whether we should check if the UI element is presented
         checkElement = false
         //wether we add additional events like "mouse over"
-        extraEvent = true
+        extraEvent = false
     }
     //data accessor
     accessor{
         //whether we should check if the UI element is presented
         checkElement = true
+    }
+    //the bundling tier
+    bundle{
+        maxMacroCmd = 5
+        useMacroCommand = false
     }
     //the configuration for the connector that connects the selenium client to the selenium server
     connector{
@@ -40,17 +59,33 @@ tellurium{
         //  *iehta
         browser = "*safari"
         //user's class to hold custom selenium methods associated with user-extensions.js
-        //should in full class name, for instance, "com.mycom.CustomSelenium"
+        //should in full class name, for instance, "com.mycom.CustomSelenium", org.tellurium.test.MyCommand
         customClass = ""
+        //browser options such as
+        //    options = "captureNetworkTraffic=true, addCustomRequestHeader=true"
+        options = ""
     }
     datadriven{
         dataprovider{
             //specify which data reader you like the data provider to use
-            //the valid options include "PipeFileReader", "CVSFileReader" at this point
+            //the valid options include "PipeFileReader", "CSVFileReader" at this point
             reader = "PipeFileReader"
         }
     }
+   //this section allows users to define the internationalization required
+    //if this section is removed, we take the default locale
+    //from the system
+    //enter only one locale at a time, and use this only if you want to explicitly
+    //set the locale, preferable way is to comment out this section
+    i18n{
+        //locale = "fr_FR"
+        locale = "en_US"
+    }
     test{
+        execution{
+            //whether to trace the execution timing
+            trace = false
+        }
         //at current stage, the result report is only for tellurium data driven testing
         //we may add the result report for regular tellurium test case
         result{
@@ -89,7 +124,7 @@ tellurium{
 
             //example:
 //           Icon="org.tellurium.builder.IconBuilder"
-            
+
         }
     }
     widget{

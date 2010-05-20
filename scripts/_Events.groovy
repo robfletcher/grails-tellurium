@@ -1,4 +1,15 @@
+loadTelluriumTestTypeClass = {->
+	def doLoad = {-> classLoader.loadClass("grails.plugin.tellurium.TelluriumGrailsTestType") }
+	try {
+		doLoad()
+	} catch (ClassNotFoundException e) {
+		includeTargets << grailsScript("_GrailsCompile")
+		compile()
+		doLoad()
+	}
+}
+
 eventAllTestsStart = {
-	def testType = Thread.currentThread().contextClassLoader.loadClass("grails.plugin.tellurium.TelluriumGrailsTestType")
-	functionalTests << testType.newInstance("tellurium", "tellurium")
+	def telluriumTestTypeClass = loadTelluriumTestTypeClass()
+	functionalTests << telluriumTestTypeClass.newInstance("tellurium", "tellurium")
 }
