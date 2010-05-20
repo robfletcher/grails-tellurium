@@ -11,7 +11,9 @@ grails.project.dependency.resolution = {
 		mavenCentral()
     }
     dependencies {
-		test "org.hamcrest:hamcrest-all:1.1"
+		test("org.hamcrest:hamcrest-all:1.1") {
+			excludes "junit", "easymock", "jmock"
+		}
     }
 }
 
