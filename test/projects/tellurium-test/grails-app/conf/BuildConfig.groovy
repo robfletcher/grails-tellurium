@@ -7,8 +7,11 @@ grails.project.dependency.resolution = {
     repositories {        
         grailsPlugins()
         grailsHome()
+		mavenLocal()
+		mavenCentral()
     }
     dependencies {
+		test "org.hamcrest:hamcrest-all:1.1"
     }
 }
 

@@ -8,6 +8,9 @@ import org.junit.After
 import org.junit.Before
 import org.junit.BeforeClass
 import org.junit.Test
+import static org.hamcrest.Matchers.equalTo
+import static org.hamcrest.Matchers.hasProperty
+import static org.junit.Assert.assertThat
 
 class CreateAlbumTests extends TelluriumGrailsTestCase {
 
@@ -18,41 +21,47 @@ class CreateAlbumTests extends TelluriumGrailsTestCase {
 		module.defineUi();
 	}
 
-	@Before void setUp() {
+	@Before
+	void setUp() {
 		super.setUp()
 		connectUrl("http://localhost:8080/album/create");
 	}
 
-	@After void tearDown() {
+	@After
+	void tearDown() {
 		super.tearDown()
-		Album.withNewSession {
+		Album.withTransaction {
 			Album.list()*.delete()
 			Artist.list()*.delete()
 		}
 	}
 
-	@Test void createAlbumCreatesNewArtists() {
+	@Test
+	void createAlbumCreatesNewArtists() {
 		module.createAlbum("Edward Sharpe & the Magnetic Zeros", "Up From Below", "2009")
 
-		assertEquals 1, Album.count()
-		assertEquals 1, Artist.count()
+		assertThat "Album count", Album.count(), equalTo(1)
+		assertThat "Artist count", Artist.count(), equalTo(1)
 		def album = Album.list()[0]
-		assertEquals "Edward Sharpe & the Magnetic Zeros", album.artist.name
-		assertEquals "Up From Below", album.name
-		assertEquals "2009", album.year
+		assertThat "Artist name", album.artist, hasProperty("name", equalTo("Edward Sharpe & the Magnetic Zeros"))
+		assertThat "Album name", album.name, equalTo("Up From Below")
+		assertThat "Album year", album.year, equalTo("2009")
 	}
 
-	@Test void createAlbumUsesExistingArtist() {
-		new Artist(name: "Edward Sharpe & the Magnetic Zeros").save(failOnError: true, flush: true)
+	@Test
+	void createAlbumUsesExistingArtist() {
+		Artist.withTransaction {
+			new Artist(name: "Edward Sharpe & the Magnetic Zeros").save(failOnError: true, flush: true)
+		}
 
 		module.createAlbum("Edward Sharpe & the Magnetic Zeros", "Up From Below", "2009")
 
-		assertEquals 1, Album.count()
-		assertEquals 1, Artist.count()
+		assertThat "Album count", Album.count(), equalTo(1)
+		assertThat "Artist count", Artist.count(), equalTo(1)
 		def album = Album.list()[0]
-		assertEquals "Edward Sharpe & the Magnetic Zeros", album.artist.name
-		assertEquals "Up From Below", album.name
-		assertEquals "2009", album.year
+		assertThat "Artist name", album.artist, hasProperty("name", equalTo("Edward Sharpe & the Magnetic Zeros"))
+		assertThat "Album name", album.name, equalTo("Up From Below")
+		assertThat "Album year", album.year, equalTo("2009")
 	}
 
 }

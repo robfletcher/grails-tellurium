@@ -21,14 +21,11 @@ class TelluriumGrailsTestType extends JUnit4GrailsTestType {
 
 	protected int doPrepare() {
 		def count = super.doPrepare()
-		println "Found $count Tellurium tests..."
 		if (count > 0) {
-			println "Starting Tellurium..."
 			tellurium = TelluriumSupport.addSupport()
 			tellurium.start(null)
 			connector = tellurium.connector
 			connector.connectSeleniumServer()
-			println "connector = $connector..."
 		}
 		return count
 	}
